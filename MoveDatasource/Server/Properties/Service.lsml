@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModelFragment xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication
+    Name="LightSwitchServiceApplication"
+    Version="1.0.0.0">
+    <ServiceApplication.Attributes>
+      <ModuleNamespace
+        Namespace="LightSwitchApplication" />
+    </ServiceApplication.Attributes>
+  </ServiceApplication>
+  <DataService
+    DataProvider="AstoriaDataProvider"
+    EntityContainer="LightSwitchCommonModule:NetflixCatalogData"
+    Name="NetflixCatalogDataDataService">
+    <DataService.Attributes>
+      <CsdlEntityContainer
+        Name="NetflixCatalog" />
+    </DataService.Attributes>
+    <DataService.ConnectionProperties>
+      <ConnectionProperty
+        Name="UserSubmittedServiceUrl"
+        Value="http://odata.netflix.com/v2/Catalog/" />
+      <ConnectionProperty
+        Name="ConnectionStringGuid"
+        Value="be14ce21-e21f-46a8-82af-43edb9ef71ad" />
+      <ConnectionProperty
+        Name="SafeConnectionString"
+        Value="Service Url=http://odata.netflix.com/v2/Catalog;Is Windows Authentication=False" />
+      <ConnectionProperty
+        Name="ProjectMetadata"
+        Value="EdmxFile1" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping
+      EntitySet="Titles">
+      <EntitySetMapping.Attributes>
+        <CsdlEntitySet
+          EntityType="LightSwitchCommonModule:Title"
+          EntityTypeName="Title"
+          Name="Titles" />
+        <CsdlProperty
+          Name="Id"
+          Property="LightSwitchCommonModule:Title/Properties[Id]" />
+        <CsdlProperty
+          Name="Name"
+          Property="LightSwitchCommonModule:Title/Properties[Name]" />
+        <CsdlProperty
+          Name="ShortName"
+          Property="LightSwitchCommonModule:Title/Properties[ShortName]" />
+        <CsdlProperty
+          Name="Synopsis"
+          Property="LightSwitchCommonModule:Title/Properties[Synopsis]" />
+        <CsdlProperty
+          Name="ShortSynopsis"
+          Property="LightSwitchCommonModule:Title/Properties[ShortSynopsis]" />
+        <CsdlProperty
+          Name="AverageRating"
+          Property="LightSwitchCommonModule:Title/Properties[AverageRating]" />
+        <CsdlProperty
+          Name="ReleaseYear"
+          Property="LightSwitchCommonModule:Title/Properties[ReleaseYear]" />
+        <CsdlProperty
+          Name="Url"
+          Property="LightSwitchCommonModule:Title/Properties[Url]" />
+        <CsdlProperty
+          Name="Runtime"
+          Property="LightSwitchCommonModule:Title/Properties[Runtime]" />
+        <CsdlProperty
+          Name="Rating"
+          Property="LightSwitchCommonModule:Title/Properties[Rating]" />
+        <CsdlProperty
+          Name="DateModified"
+          Property="LightSwitchCommonModule:Title/Properties[DateModified]" />
+        <CsdlProperty
+          Name="Type"
+          Property="LightSwitchCommonModule:Title/Properties[Type]" />
+        <CsdlProperty
+          Name="WebsiteUrl"
+          Property="LightSwitchCommonModule:Title/Properties[WebsiteUrl]" />
+        <CsdlProperty
+          Name="NetflixApiId"
+          Property="LightSwitchCommonModule:Title/Properties[NetflixApiId]" />
+        <CsdlProperty
+          Name="TinyUrl"
+          Property="LightSwitchCommonModule:Title/Properties[TinyUrl]" />
+        <CsdlProperty
+          Name="Disc"
+          Property="LightSwitchCommonModule:Title/Properties[Disc]" />
+        <CsdlProperty
+          Name="Season"
+          Property="LightSwitchCommonModule:Title/Properties[Season]" />
+        <CsdlProperty
+          Name="Series"
+          Property="LightSwitchCommonModule:Title/Properties[Series]" />
+        <CsdlProperty
+          Name="Movie"
+          Property="LightSwitchCommonModule:Title/Properties[Movie]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="Title_Disc">
+      <AssociationSetMapping.Attributes>
+        <CsdlAssociation
+          Association="LightSwitchCommonModule:Title_Disc"
+          Name="Title_Disc" />
+        <CsdlAssociationSetEnd
+          End="LightSwitchCommonModule:NetflixCatalogData/Members[Title_Disc]/Members[Title_Disc_Target]" />
+        <CsdlAssociationSetEnd
+          End="LightSwitchCommonModule:NetflixCatalogData/Members[Title_Disc]/Members[Title_Disc_Source]" />
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Title_Season">
+      <AssociationSetMapping.Attributes>
+        <CsdlAssociation
+          Association="LightSwitchCommonModule:Title_Season"
+          Name="Title_Season" />
+        <CsdlAssociationSetEnd
+          End="LightSwitchCommonModule:NetflixCatalogData/Members[Title_Season]/Members[Title_Season_Target]" />
+        <CsdlAssociationSetEnd
+          End="LightSwitchCommonModule:NetflixCatalogData/Members[Title_Season]/Members[Title_Season_Source]" />
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Title_Series">
+      <AssociationSetMapping.Attributes>
+        <CsdlAssociation
+          Association="LightSwitchCommonModule:Title_Series"
+          Name="Title_Series" />
+        <CsdlAssociationSetEnd
+          End="LightSwitchCommonModule:NetflixCatalogData/Members[Title_Series]/Members[Title_Series_Target]" />
+        <CsdlAssociationSetEnd
+          End="LightSwitchCommonModule:NetflixCatalogData/Members[Title_Series]/Members[Title_Series_Source]" />
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Title_Movie">
+      <AssociationSetMapping.Attributes>
+        <CsdlAssociation
+          Association="LightSwitchCommonModule:Title_Movie"
+          Name="Title_Movie" />
+        <CsdlAssociationSetEnd
+          End="LightSwitchCommonModule:NetflixCatalogData/Members[Title_Movie]/Members[Title_Movie_Target]" />
+        <CsdlAssociationSetEnd
+          End="LightSwitchCommonModule:NetflixCatalogData/Members[Title_Movie]/Members[Title_Movie_Source]" />
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <DataService
+    DataProvider="EntityFrameworkDataProvider"
+    EntityContainer="LightSwitchCommonModule:ApplicationData"
+    Name="ApplicationDataMapping" />
+</ModelFragment>

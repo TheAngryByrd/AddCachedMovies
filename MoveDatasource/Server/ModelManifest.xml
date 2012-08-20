@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="D:\dev\jbyrd\lightswitch\MoveDatasource\MoveDatasource\Common\Properties\Common.lsml" Checksum="31404D98A1D50A6D6692197A6646A26F6E8F67EF371F9FE3DFD421706D880622" />
+    <Document FullPath="D:\dev\jbyrd\lightswitch\MoveDatasource\MoveDatasource\Server\Properties\Service.lsml" Checksum="48BAFC359E2422D554654B428E17EAAB881AC6080B346A1D9FF77CE94ED6D863" />
+  </Documents>
+</ModelDocumentManifest>

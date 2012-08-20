@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="NetflixCatalogDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="NetflixCatalogDataStore">
+    <EntitySet Name="Titles" EntityType="NetflixCatalogDataStore.Title" store:Type="Tables" Schema="dbo" Table="Title" />
+    <AssociationSet Name="Title_Disc" Association="NetflixCatalogDataStore.Title_Disc">
+      <End Role="Title_Disc_Target" EntitySet="Titles" />
+      <End Role="Title_Disc_Source" EntitySet="Titles" />
+    </AssociationSet>
+    <AssociationSet Name="Title_Season" Association="NetflixCatalogDataStore.Title_Season">
+      <End Role="Title_Season_Target" EntitySet="Titles" />
+      <End Role="Title_Season_Source" EntitySet="Titles" />
+    </AssociationSet>
+    <AssociationSet Name="Title_Series" Association="NetflixCatalogDataStore.Title_Series">
+      <End Role="Title_Series_Target" EntitySet="Titles" />
+      <End Role="Title_Series_Source" EntitySet="Titles" />
+    </AssociationSet>
+    <AssociationSet Name="Title_Movie" Association="NetflixCatalogDataStore.Title_Movie">
+      <End Role="Title_Movie_Target" EntitySet="Titles" />
+      <End Role="Title_Movie_Source" EntitySet="Titles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Title">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="ShortName" Type="nvarchar(max)" />
+    <Property Name="Synopsis" Type="nvarchar(max)" />
+    <Property Name="ShortSynopsis" Type="nvarchar(max)" />
+    <Property Name="AverageRating" Type="float" />
+    <Property Name="ReleaseYear" Type="int" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="Runtime" Type="int" />
+    <Property Name="Rating" Type="nvarchar(max)" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="WebsiteUrl" Type="nvarchar(max)" />
+    <Property Name="NetflixApiId" Type="nvarchar(max)" />
+    <Property Name="TinyUrl" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="Title_Disc">
+    <End Role="Title_Disc_Target" Type="NetflixCatalogDataStore.Title" Multiplicity="0..1" />
+    <End Role="Title_Disc_Source" Type="NetflixCatalogDataStore.Title" Multiplicity="*" />
+  </Association>
+  <Association Name="Title_Season">
+    <End Role="Title_Season_Target" Type="NetflixCatalogDataStore.Title" Multiplicity="0..1" />
+    <End Role="Title_Season_Source" Type="NetflixCatalogDataStore.Title" Multiplicity="*" />
+  </Association>
+  <Association Name="Title_Series">
+    <End Role="Title_Series_Target" Type="NetflixCatalogDataStore.Title" Multiplicity="0..1" />
+    <End Role="Title_Series_Source" Type="NetflixCatalogDataStore.Title" Multiplicity="*" />
+  </Association>
+  <Association Name="Title_Movie">
+    <End Role="Title_Movie_Target" Type="NetflixCatalogDataStore.Title" Multiplicity="0..1" />
+    <End Role="Title_Movie_Source" Type="NetflixCatalogDataStore.Title" Multiplicity="*" />
+  </Association>
+</Schema>

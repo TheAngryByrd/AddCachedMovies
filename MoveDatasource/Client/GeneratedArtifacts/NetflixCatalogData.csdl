@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Title">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="Edm.String" MaxLength="Max" />
+    <Property Name="ShortName" Type="Edm.String" MaxLength="Max" />
+    <Property Name="Synopsis" Type="Edm.String" MaxLength="Max" />
+    <Property Name="ShortSynopsis" Type="Edm.String" MaxLength="Max" />
+    <Property Name="AverageRating" Type="Edm.Double" />
+    <Property Name="ReleaseYear" Type="Edm.Int32" />
+    <Property Name="Url" Type="Edm.String" MaxLength="Max" />
+    <Property Name="Runtime" Type="Edm.Int32" />
+    <Property Name="Rating" Type="Edm.String" MaxLength="Max" />
+    <Property Name="DateModified" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="Type" Type="Edm.String" MaxLength="Max" />
+    <Property Name="WebsiteUrl" Type="Edm.String" MaxLength="Max" />
+    <Property Name="NetflixApiId" Type="Edm.String" MaxLength="Max" />
+    <Property Name="TinyUrl" Type="Edm.String" MaxLength="Max" />
+    <NavigationProperty Name="Disc" Relationship="LightSwitchApplication.Title_Disc" ToRole="Title_Disc_Target" FromRole="Title_Disc_Source" />
+    <NavigationProperty Name="Season" Relationship="LightSwitchApplication.Title_Season" ToRole="Title_Season_Target" FromRole="Title_Season_Source" />
+    <NavigationProperty Name="Series" Relationship="LightSwitchApplication.Title_Series" ToRole="Title_Series_Target" FromRole="Title_Series_Source" />
+    <NavigationProperty Name="Movie" Relationship="LightSwitchApplication.Title_Movie" ToRole="Title_Movie_Target" FromRole="Title_Movie_Source" />
+  </EntityType>
+  <Association Name="Title_Disc">
+    <End Role="Title_Disc_Target" Type="LightSwitchApplication.Title" Multiplicity="0..1" />
+    <End Role="Title_Disc_Source" Type="LightSwitchApplication.Title" Multiplicity="*" />
+  </Association>
+  <Association Name="Title_Season">
+    <End Role="Title_Season_Target" Type="LightSwitchApplication.Title" Multiplicity="0..1" />
+    <End Role="Title_Season_Source" Type="LightSwitchApplication.Title" Multiplicity="*" />
+  </Association>
+  <Association Name="Title_Series">
+    <End Role="Title_Series_Target" Type="LightSwitchApplication.Title" Multiplicity="0..1" />
+    <End Role="Title_Series_Source" Type="LightSwitchApplication.Title" Multiplicity="*" />
+  </Association>
+  <Association Name="Title_Movie">
+    <End Role="Title_Movie_Target" Type="LightSwitchApplication.Title" Multiplicity="0..1" />
+    <End Role="Title_Movie_Source" Type="LightSwitchApplication.Title" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="NetflixCatalogDataObjectContext" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Titles" EntityType="LightSwitchApplication.Title" />
+    <AssociationSet Name="Title_Disc" Association="LightSwitchApplication.Title_Disc">
+      <End Role="Title_Disc_Target" EntitySet="Titles" />
+      <End Role="Title_Disc_Source" EntitySet="Titles" />
+    </AssociationSet>
+    <AssociationSet Name="Title_Season" Association="LightSwitchApplication.Title_Season">
+      <End Role="Title_Season_Target" EntitySet="Titles" />
+      <End Role="Title_Season_Source" EntitySet="Titles" />
+    </AssociationSet>
+    <AssociationSet Name="Title_Series" Association="LightSwitchApplication.Title_Series">
+      <End Role="Title_Series_Target" EntitySet="Titles" />
+      <End Role="Title_Series_Source" EntitySet="Titles" />
+    </AssociationSet>
+    <AssociationSet Name="Title_Movie" Association="LightSwitchApplication.Title_Movie">
+      <End Role="Title_Movie_Target" EntitySet="Titles" />
+      <End Role="Title_Movie_Source" EntitySet="Titles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
